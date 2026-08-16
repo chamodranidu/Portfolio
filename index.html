@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chamod Ranidu - Mechatronics Engineer</title>
+    <title>Chamod Ranidu - Mechatronics & Automation Engineer</title>
     
     <style>
         * {
@@ -14,10 +14,53 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #403f3f, #1a1a1a, #0d0d0d);
-            color: #e0e0e0;
+            background-color: #0b0f19;
+            /* Professional Dark Grid/Circuit Texture Overlay */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.25) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(15, 23, 42, 0.8) 0px, transparent 50%),
+                radial-gradient(rgba(100, 116, 139, 0.12) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 24px 24px;
+            background-attachment: fixed;
+            color: #b8c4de;
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        /* Modern Mouse Glow Effect */
+        @media (hover: hover) and (pointer: fine) {
+            .cursor-glow {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 450px;
+                height: 450px;
+                pointer-events: none;
+                z-index: 9999;
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                background: radial-gradient(circle,
+                            rgba(180, 196, 222, 0.08) 0%,
+                            rgba(100, 116, 139, 0.05) 30%,
+                            rgba(100, 116, 139, 0) 70%);
+                transition: opacity 0.3s ease, width 0.35s ease, height 0.35s ease;
+                mix-blend-mode: screen;
+                opacity: 0;
+                will-change: transform;
+            }
+
+            .cursor-glow.active {
+                opacity: 1;
+            }
+
+            .cursor-glow.hovered {
+                width: 600px;
+                height: 600px;
+                background: radial-gradient(circle,
+                            rgba(219, 228, 245, 0.10) 0%,
+                            rgba(100, 116, 139, 0.06) 30%,
+                            rgba(100, 116, 139, 0) 70%);
+            }
         }
 
         /* Navigation */
@@ -25,19 +68,19 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(11, 15, 25, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 20px 0;
             z-index: 1000;
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(160, 160, 160, 0.2);
+            border-bottom: 1px solid rgba(160, 160, 160, 0.15);
         }
 
         nav.scrolled {
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(7, 10, 18, 0.92);
             padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
         }
 
         .nav-container {
@@ -52,7 +95,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #fff;
+            color: #dbe4f5;
             transition: transform 0.3s ease;
         }
 
@@ -67,7 +110,7 @@
         }
 
         .nav-links a {
-            color: #e0e0e0;
+            color: #b8c4de;
             text-decoration: none;
             font-size: 1rem;
             transition: all 0.3s ease;
@@ -82,12 +125,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #808080;
+            background: #64748b;
             transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #a0a0a0;
+            color: #94a3b8;
         }
 
         .nav-links a:hover::after {
@@ -118,19 +161,19 @@
             font-size: 3rem;
             margin-top: 40px;
             margin-bottom: 10px;
-            color: #fff;
+            color: #dbe4f5;
             opacity: 0;
             animation: fadeInUp 0.8s ease forwards;
             animation-delay: 0.2s;
         }
 
         .hero-content h2 span {
-            color: #a0a0a0;
+            color: #94a3b8;
         }
 
         .hero-content h1 {
             font-size: 2rem;
-            color: #e0e0e0;
+            color: #b8c4de;
             margin-bottom: 15px;
             opacity: 0;
             animation: fadeInUp 0.8s ease forwards;
@@ -140,11 +183,10 @@
         .hero-content .title {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #fff;
             margin-bottom: 30px;
             line-height: 1.2;
             color: transparent;
-            background: linear-gradient(to right, #fffffff3, #8f8c8c);
+            background: linear-gradient(to right, #e2e8f0, #64748b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             opacity: 0;
@@ -191,33 +233,21 @@
             height: 300px;
         }
 
-        .btn-primary {
-            background: transparent;
-            color: #fff;
-            border: 2px solid #808080;
+        .btn-primary, .btn-secondary {
+            background: rgba(15, 23, 42, 0.6);
+            color: #dbe4f5;
+            border: 2px solid #64748b;
             z-index: 1;
+            backdrop-filter: blur(5px);
         }
 
-        .btn-primary:hover {
-            background: #6b6b6b;
+        .btn-primary:hover, .btn-secondary:hover {
+            background: #334867;
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(128, 128, 128, 0.4);
+            box-shadow: 0 5px 20px rgba(100, 116, 139, 0.4);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: #fff;
-            border: 2px solid #808080;
-            z-index: 1;
-        }
-
-        .btn-secondary:hover {
-            background: #6b6b6b;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(128, 128, 128, 0.4);
-        }
-
-        /* Photo Section - Smaller Circle */
+        /* Photo Section */
         .hero-photo {
             position: relative;
             display: flex;
@@ -243,10 +273,10 @@
             transform: translate(-50%, -50%);
             width: 380px;
             height: 380px;
-            border: 3px solid #808080;
+            border: 3px solid #64748b;
             border-radius: 50%;
             opacity: 0.3;
-            box-shadow: 10px 10px 30px rgba(162, 162, 162, 0.6), 
+            box-shadow: 10px 10px 30px rgba(162, 162, 162, 0.4), 
                         20px 20px 60px rgba(46, 47, 46, 0.4);
         }
 
@@ -255,9 +285,8 @@
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            border: 5px solid #808080;
-            box-shadow: 10px 10px 30px rgba(162, 162, 162, 0.797), 
-                        20px 20px 60px rgba(46, 47, 46, 0.4);
+            border: 5px solid #64748b;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6);
             transition: transform 0.5s ease;
         }
 
@@ -278,23 +307,24 @@
 
         .tech-stack span {
             font-size: 1rem;
-            color: #b8b6b6;
+            color: #a8b8d8;
             font-weight: 450;
             position: relative;
             padding: 5px 15px;
-            background: rgba(128, 128, 128, 0.1);
+            background: rgba(15, 23, 42, 0.6);
             border-radius: 20px;
-            border: 1px solid rgba(128, 128, 128, 0.3);
+            border: 1px solid rgba(100, 116, 139, 0.4);
+            backdrop-filter: blur(5px);
             transition: all 0.3s ease;
         }
 
         .tech-stack span:hover {
-            background: rgba(128, 128, 128, 0.2);
+            background: rgba(100, 116, 139, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(128, 128, 128, 0.2);
+            box-shadow: 0 5px 15px rgba(100, 116, 139, 0.2);
         }
 
-        /* Sections - REDUCED PADDING */
+        /* Sections */
         section {
             max-width: 1200px;
             margin: 0 auto;
@@ -308,7 +338,7 @@
         .section-title {
             font-size: 2.5rem;
             margin-bottom: 40px;
-            color: #fff;
+            color: #dbe4f5;
             text-align: center;
             position: relative;
             padding-bottom: 20px;
@@ -322,17 +352,17 @@
             transform: translateX(-50%);
             width: 100px;
             height: 3px;
-            background: linear-gradient(to right, #808080, transparent);
+            background: linear-gradient(to right, #64748b, transparent);
             border-radius: 2px;
         }
 
         .section-title span {
-            color: #a0a0a0;
+            color: #94a3b8;
         }
 
-        /* About Section - Background box ONLY on content */
+        /* About Section */
         #about {
-            padding: 50px 40px 170px;
+            padding: 50px 40px 100px;
         }
 
         .about-content {
@@ -340,169 +370,250 @@
             max-width: 1800px;
             margin: 0 auto;
             font-size: 1.1rem;
-            color: #d1d5db;
+            color: #c7d2e8;
             line-height: 1.8;
-            /* Background box only for content */
-            background: rgba(76, 76, 76, 0.8);
-            border-radius: 12px;
-            border: 1px solid rgba(128, 128, 128, 0.3);
-            padding: 80px 80px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            padding: 50px 60px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
 
         .about-content p {
             margin-bottom: 25px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards;
         }
 
-        .about-content p:nth-child(1) {
-            animation-delay: 0.2s;
+        .about-content p:last-child {
+            margin-bottom: 0;
         }
 
-        .about-content p:nth-child(2) {
-            animation-delay: 0.4s;
+        /* Professional Experience Section */
+        .experience-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
 
-        /* Professional Experience Section - REDUCED HEIGHT */
         .experience-card {
-            min-height: 50vh;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(160, 160, 160, 0.3);
-            border-radius: 12px;
-            padding: 20px 35px; /* REDUCED from 35px */
-            margin-bottom: 0px;
-            margin-top: 0px;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            border-radius: 14px;
+            padding: 30px 35px;
             transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards;
         }
-
-        .experience-card:nth-child(1) { animation-delay: 0.2s; }
-        .experience-card:nth-child(2) { animation-delay: 0.3s; }
 
         .experience-card:hover {
             transform: translateY(-5px);
-            border-color: #808080;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: #64748b;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .experience-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 15px; /* REDUCED from 20px */
+            margin-bottom: 15px;
             flex-wrap: wrap;
             gap: 15px;
         }
 
         .experience-title {
             font-size: 1.7rem;
-            color: #a0a0a0;
-            margin-bottom: 8px; /* REDUCED from 10px */
+            color: #94a3b8;
+            margin-bottom: 8px;
         }
 
         .experience-company {
             font-size: 1.3rem;
-            color: #fff;
+            color: #dbe4f5;
             margin-bottom: 5px;
         }
 
         .experience-period {
-            background: rgba(128, 128, 128, 0.2);
-            color: #b0b0b0;
+            background: rgba(100, 116, 139, 0.2);
+            color: #8fa3c8;
             padding: 8px 16px;
             border-radius: 20px;
-            font-size: 1rem;
-            border: 1px solid rgba(160, 160, 160, 0.4);
+            font-size: 0.95rem;
+            border: 1px solid rgba(160, 160, 160, 0.3);
         }
 
         .experience-description {
-            color: #d1d5db;
+            color: #c7d2e8;
             line-height: 1.7;
-            margin-top: 5px; /* REDUCED from 20px */
-            font-size: 0.95rem; /* Slightly smaller text */
+            font-size: 0.95rem;
         }
 
         .experience-description ul {
             list-style: none;
-            margin-top: 12px; /* REDUCED from 15px */
-            padding-left: 20px;
+            margin-top: 12px;
+            padding-left: 10px;
         }
 
         .experience-description li {
-            margin-bottom: 8px; /* REDUCED from 10px */
+            margin-bottom: 8px;
             position: relative;
             padding-left: 25px;
-            font-size: 0.95rem; /* Slightly smaller text */
         }
 
         .experience-description li::before {
             content: '▸';
             position: absolute;
             left: 0;
-            color: #808080;
+            color: #64748b;
             font-weight: bold;
         }
 
-        /* Projects Grid with Galleries */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 50px;
+        /* 3D 3-CARD PROJECTS SLIDER */
+        #projects {
+            overflow: hidden;
+        }
+
+        .projects-3d-slider {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+            perspective: 1000px;
+        }
+
+        .projects-3d-track {
+            position: relative;
+            height: 580px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(160, 160, 160, 0.3);
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards;
-            overflow: hidden;
-        }
-
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .project-card:nth-child(4) { animation-delay: 0.4s; }
-        .project-card:nth-child(5) { animation-delay: 0.5s; }
-        .project-card:nth-child(6) { animation-delay: 0.6s; }
-
-        .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: #808080;
-            box-shadow: 0 15px 40px rgba(128, 128, 128, 0.4);
+            position: absolute;
+            width: 580px;
+            height: 540px;
+            background: rgba(15, 23, 42, 0.92);
+            border: 1px solid rgba(100, 116, 139, 0.4);
+            border-radius: 16px;
+            padding: 25px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
+            user-select: none;
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .project-card h3 {
-            color: #a0a0a0;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            transition: color 0.3s ease;
+            font-size: 1.3rem;
+            line-height: 1.4;
+            color: #64748b;
+            margin-bottom: 10px;
+            transition: all 0.4s ease;
+            text-align: center;
+            font-weight: 700;
         }
 
-        .project-card:hover h3 {
-            color: #fff;
+        .project-card.active {
+            transform: translateX(0) scale(1);
+            opacity: 1;
+            z-index: 10;
+            border-color: #64748b;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(100, 116, 139, 0.2);
+            cursor: default;
+        }
+
+        .project-card.active h3 {
+            color: #dbe4f5;
+            font-size: 1.4rem;
+            text-shadow: 0 2px 10px rgba(219, 228, 245, 0.2);
+        }
+
+        .project-card.prev {
+            transform: translateX(-65%) scale(0.82) rotateY(12deg);
+            opacity: 0.35;
+            z-index: 5;
+            pointer-events: auto;
+        }
+
+        .project-card.next {
+            transform: translateX(65%) scale(0.82) rotateY(-12deg);
+            opacity: 0.35;
+            z-index: 5;
+            pointer-events: auto;
+        }
+
+        .project-card.prev:hover, 
+        .project-card.next:hover {
+            opacity: 0.65;
+            border-color: #94a3b8;
+        }
+
+        .project-card.prev:hover h3, 
+        .project-card.next:hover h3 {
+            color: #38bdf8;
+            transform: scale(1.03);
+        }
+
+        .project-card.hidden-left {
+            transform: translateX(-120%) scale(0.6);
+            opacity: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .project-card.hidden-right {
+            transform: translateX(120%) scale(0.6);
+            opacity: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .project-description-container {
+            position: relative;
         }
 
         .project-card p {
-            color: #d1d5db;
-            margin-bottom: 20px;
+            color: #c7d2e8;
+            margin-bottom: 8px;
+            font-size: 0.92rem;
             text-align: justify;
+            line-height: 1.5;
         }
 
-        /* Project Image Gallery */
+        /* Truncate text ONLY when "See More" button is active */
+        .project-card p.truncated {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .see-more-btn {
+            background: none;
+            border: none;
+            color: #38bdf8;
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 0;
+            margin-bottom: 8px;
+            display: inline-block;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        .see-more-btn:hover {
+            color: #7dd3fc;
+        }
+
         .project-gallery {
-            margin: 20px 0;
+            margin: 10px 0;
             position: relative;
             border-radius: 8px;
             overflow: hidden;
-            height: 200px;
+            height: 190px;
+            background: rgba(0, 0, 0, 0.4);
         }
 
         .gallery-container {
@@ -511,9 +622,9 @@
             transition: transform 0.5s ease;
         }
 
-         .gallery-slide {
-             flex: 0 0 100%;
-             height: 100%;
+        .gallery-slide {
+            flex: 0 0 100%;
+            height: 100%;
         }
 
         .gallery-slide img {
@@ -530,12 +641,12 @@
             right: 0;
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .gallery-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
@@ -543,19 +654,19 @@
         }
 
         .gallery-dot.active {
-            background: #808080;
-            transform: scale(1.2);
+            background: #64748b;
+            transform: scale(1.3);
         }
 
         .gallery-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             color: white;
             border: none;
-            width: 35px;
-            height: 35px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -566,50 +677,246 @@
             z-index: 2;
         }
 
-        .project-card:hover .gallery-nav {
+        .project-card.active:hover .gallery-nav {
             opacity: 1;
         }
 
-        .gallery-prev {
-            left: 10px;
-        }
-
-        .gallery-next {
-            right: 10px;
-        }
-
-        .gallery-nav:hover {
-            background: rgba(128, 128, 128, 0.8);
-        }
+        .gallery-prev { left: 10px; }
+        .gallery-next { right: 10px; }
 
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 8px;
+            margin-top: 10px;
         }
 
         .tech-tag {
-            background: rgba(160, 160, 160, 0.2);
-            color: #b0b0b0;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(160, 160, 160, 0.4);
+            background: rgba(100, 116, 139, 0.15);
+            color: #8fa3c8;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(160, 160, 160, 0.3);
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(15, 23, 42, 0.85);
+            color: #dbe4f5;
+            border: 1px solid rgba(100, 116, 139, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 20;
             transition: all 0.3s ease;
         }
 
-        .project-card:hover .tech-tag {
-            background: rgba(128, 128, 128, 0.3);
-            color: #fff;
-            border-color: #808080;
+        .slider-arrow:hover {
+            background: #64748b;
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(100, 116, 139, 0.5);
         }
 
-        /* Skills Section with Different Sized Boxes */
-        #skills {
-            background: rgba(255, 255, 255, 0.02) !important;
+        .slider-arrow.prev-arrow { left: 10px; }
+        .slider-arrow.next-arrow { right: 10px; }
+
+        /* Modal Popup for Details */
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
 
+        .modal-content {
+            background: #0f172a;
+            border: 1px solid #64748b;
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            position: relative;
+            color: #c7d2e8;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #ffffff;
+        }
+
+        .modal-title {
+            color: #dbe4f5;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            padding-right: 30px;
+        }
+
+        .modal-body {
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+
+        /* NEW SECTION: INTERACTIVE SHOWCASE GRID & ANIMATED CARDS */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .showcase-card {
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            border-radius: 16px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                        box-shadow 0.4s ease, 
+                        border-color 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .showcase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.15), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .showcase-card:hover::before {
+            left: 100%;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-10px) rotateX(4deg) scale(1.02);
+            border-color: #38bdf8;
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15), 0 0 20px rgba(100, 116, 139, 0.2);
+        }
+
+        .showcase-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .showcase-icon {
+            font-size: 1.8rem;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.1);
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .showcase-card h3 {
+            font-size: 1.2rem;
+            color: #dbe4f5;
+            line-height: 1.3;
+        }
+
+        .showcase-card p {
+            font-size: 0.9rem;
+            color: #c7d2e8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .showcase-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(160, 160, 160, 0.15);
+        }
+
+        .resource-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cad {
+            background: rgba(56, 189, 248, 0.12);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.4);
+        }
+
+        .btn-cad:hover {
+            background: #38bdf8;
+            color: #0b0f19;
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+        }
+
+        .btn-video {
+            background: rgba(239, 68, 68, 0.12);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-video:hover {
+            background: #f87171;
+            color: #0b0f19;
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-doc {
+            background: rgba(168, 85, 247, 0.12);
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.4);
+        }
+
+        .btn-doc:hover {
+            background: #c084fc;
+            color: #0b0f19;
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+        }
+
+        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -618,310 +925,147 @@
         }
 
         .skill-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
             border: 1px solid rgba(160, 160, 160, 0.3);
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 25px;
             transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
         }
 
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(128, 128, 128, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .skill-card:hover::before {
-            left: 100%;
-        }
-
-        /* Different sizes for each skill card */
-        .skill-card:nth-child(1) { 
-            grid-column: span 4; /* Large */
-            grid-row: span 1;
-            animation-delay: 0.1s;
-            min-height: 220px;
-        }
-        .skill-card:nth-child(2) { 
-            grid-column: span 4; /* Large */
-            grid-row: span 1;
-            animation-delay: 0.2s;
-            min-height: 220px;
-        }
-        .skill-card:nth-child(3) { 
-            grid-column: span 4; /* Large */
-            grid-row: span 1;
-            animation-delay: 0.3s;
-            min-height: 220px;
-        }
-        .skill-card:nth-child(4) { 
-            grid-column: span 3; /* Medium */
-            grid-row: span 1;
-            animation-delay: 0.4s;
-            min-height: 200px;
-        }
-        .skill-card:nth-child(5) { 
-            grid-column: span 3; /* Medium */
-            grid-row: span 1;
-            animation-delay: 0.5s;
-            min-height: 200px;
-        }
-        .skill-card:nth-child(6) { 
-            grid-column: span 6; /* Extra Large */
-            grid-row: span 1;
-            animation-delay: 0.6s;
-            min-height: 240px;
-        }
-
-        /* Individual animations for each card */
-        @keyframes cardSlideIn1 {
-            from { opacity: 0; transform: translateX(-30px) rotateY(90deg); }
-            to { opacity: 1; transform: translateX(0) rotateY(0); }
-        }
-        @keyframes cardSlideIn2 {
-            from { opacity: 0; transform: translateX(-20px) rotateY(60deg); }
-            to { opacity: 1; transform: translateX(0) rotateY(0); }
-        }
-        @keyframes cardSlideIn3 {
-            from { opacity: 0; transform: translateX(-10px) rotateY(30deg); }
-            to { opacity: 1; transform: translateX(0) rotateY(0); }
-        }
-        @keyframes cardSlideIn4 {
-            from { opacity: 0; transform: translateY(20px) scale(0.9); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        @keyframes cardSlideIn5 {
-            from { opacity: 0; transform: translateY(20px) scale(0.9); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        @keyframes cardSlideIn6 {
-            from { opacity: 0; transform: translateX(30px) rotateY(-90deg); }
-            to { opacity: 1; transform: translateX(0) rotateY(0); }
-        }
-
-        .skill-card:nth-child(1) { animation-name: cardSlideIn1; }
-        .skill-card:nth-child(2) { animation-name: cardSlideIn2; }
-        .skill-card:nth-child(3) { animation-name: cardSlideIn3; }
-        .skill-card:nth-child(4) { animation-name: cardSlideIn4; }
-        .skill-card:nth-child(5) { animation-name: cardSlideIn5; }
-        .skill-card:nth-child(6) { animation-name: cardSlideIn6; }
+        .skill-card:nth-child(1), .skill-card:nth-child(2), .skill-card:nth-child(3) { grid-column: span 4; }
+        .skill-card:nth-child(4), .skill-card:nth-child(5) { grid-column: span 3; }
+        .skill-card:nth-child(6) { grid-column: span 6; }
 
         .skill-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            border-color: #808080;
-            box-shadow: 0 15px 35px rgba(128, 128, 128, 0.3);
+            transform: translateY(-8px) scale(1.02);
+            border-color: #64748b;
+            box-shadow: 0 15px 35px rgba(100, 116, 139, 0.3);
             z-index: 10;
         }
 
         .skill-card h3 {
-            color: #a0a0a0;
+            color: #94a3b8;
             margin-bottom: 20px;
             font-size: 1.3rem;
-            transition: color 0.3s ease;
-            font-weight: 600;
             border-bottom: 1px solid rgba(160, 160, 160, 0.2);
             padding-bottom: 10px;
         }
 
-        .skill-card:hover h3 {
-            color: #fff;
-            border-color: #808080;
-        }
-
         .skill-card ul {
             list-style: none;
-            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            gap: 10px;
         }
 
         .skill-card li {
-            padding: 8px 0;
-            color: #d1d5db;
+            color: #c7d2e8;
             position: relative;
             padding-left: 20px;
-            transition: all 0.3s ease;
-            transform: translateX(0);
             font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .skill-card:hover li {
-            color: #e0e0e0;
-            transform: translateX(5px);
         }
 
         .skill-card li::before {
             content: '▸';
             position: absolute;
             left: 0;
-            color: #a0a0a0;
-            transition: color 0.3s ease;
-            font-weight: bold;
-        }
-
-        .skill-card:hover li::before {
-            color: #808080;
-            animation: bounce 0.5s ease;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(3px); }
+            color: #94a3b8;
         }
 
         /* Contact Section */
         #contact {
             text-align: center;
-            background: rgba(255, 255, 255, 0.02);
-            min-height: 80vh;
+            min-height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-top: 60px;
-            padding-bottom: 80px;
         }
 
         .contact-content {
             max-width: 620px;
             margin: 0 auto;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(100, 116, 139, 0.3);
         }
 
         .contact-content p {
             font-size: 1.1rem;
-            color: #d1d5db;
-            padding-bottom: 25px;
+            color: #c7d2e8;
             margin-bottom: 25px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-            animation-delay: 0.2s;
-            line-height: 1.6;
         }
 
         .contact-links {
             display: flex;
-            gap: 20px;
+            gap: 28px;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
         }
 
         .contact-links a {
-            display: inline-block;
-            width: 130px;
-            padding: 5px 10px;
-            background: rgba(160, 160, 160, 0.1);
-            border: 2px solid #808080;
-            border-radius: 8px;
-            color: #a0a0a0;
-            text-align: center;
-            text-decoration: none;
-            transition: 
-                background-color 0.3s ease,
-                color 0.3s ease,
-                border-color 0.3s ease,
-                transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                box-shadow 0.3s ease;   
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards;
-            font-weight: 450;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(100, 116, 139, 0.15);
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            color: #94a3b8;
+            transition: all 0.3s ease;
         }
 
-        .contact-links a:nth-child(1) { animation-delay: 0.3s; }
-        .contact-links a:nth-child(2) { animation-delay: 0.4s; }
-        .contact-links a:nth-child(3) { animation-delay: 0.5s; }
-        .contact-links a:nth-child(4) { animation-delay: 0.6s; }
+        .contact-links a svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
 
         .contact-links a:hover {
-            background: #808080;
-            color: white;
-            box-shadow: 0 0 20px rgba(128, 128, 128, 0.21);
-            transform: translateY(-2px) !important;
+            color: #dbe4f5;
+            background: rgba(100, 116, 139, 0.3);
+            transform: translateY(-4px);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 20px 20px 20px;
-            color: #888;
-            border-top: 1px solid rgba(160, 160, 160, 0.2);
+            padding: 20px;
+            color: #64748b;
+            border-top: 1px solid rgba(160, 160, 160, 0.15);
             font-size: 0.9rem;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(7, 10, 18, 0.8);
         }
 
-        footer p {
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Progress bar for scroll */
+        /* Progress & Back To Top */
         .progress-bar {
             position: fixed;
             top: 0;
             left: 0;
             width: 0%;
             height: 3px;
-            background: linear-gradient(to right, #808080, #a0a0a0);
+            background: linear-gradient(to right, #64748b, #94a3b8);
             z-index: 1001;
-            transition: width 0.1s ease;
         }
 
-        /* Back to top button */
         .back-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 50px;
-            height: 50px;
-            background: rgba(128, 128, 128, 0.3);
-            border: 2px solid #808080;
+            width: 45px;
+            height: 45px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 2px solid #64748b;
             border-radius: 50%;
-            color: #fff;
-            font-size: 1.5rem;
+            color: #dbe4f5;
+            font-size: 1.2rem;
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
@@ -938,236 +1082,48 @@
             visibility: visible;
         }
 
-        .back-to-top:hover {
-            background: #808080;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(128, 128, 128, 0.4);
-        }
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-        /* Mobile Responsive */
-        @media (max-width: 1200px) {
+        /* Responsive Design */
+        @media (max-width: 1024px) {
             .skills-grid {
                 grid-template-columns: repeat(6, 1fr);
             }
-            
-            .skill-card:nth-child(1),
-            .skill-card:nth-child(2),
-            .skill-card:nth-child(3) {
-                grid-column: span 2;
-            }
-            
-            .skill-card:nth-child(4),
-            .skill-card:nth-child(5) {
-                grid-column: span 3;
-            }
-            
-            .skill-card:nth-child(6) {
-                grid-column: span 6;
-            }
+            .skill-card:nth-child(1), .skill-card:nth-child(2), .skill-card:nth-child(3) { grid-column: span 3; }
+            .skill-card:nth-child(4), .skill-card:nth-child(5) { grid-column: span 3; }
+            .skill-card:nth-child(6) { grid-column: span 6; }
         }
 
         @media (max-width: 968px) {
-            #home {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding-top: 100px;
-                gap: 40px;
-            }
-
-            .hero-photo {
-                order: 1;
-            }
-
-            .hero-content {
-                order: 2;
-            }
-
-            .photo-circle {
-                width: 280px;
-                height: 280px;
-            }
-
-            .photo-circle::before {
-                width: 310px;
-                height: 310px;
-            }
-
-            .hero-content h2 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content .title {
-                font-size: 1.3rem;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .tech-stack {
-                justify-content: center;
-                gap: 20px;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
+            #home { grid-template-columns: 1fr; text-align: center; }
+            .hero-photo { order: 1; }
+            .hero-content { order: 2; }
+            .photo-circle { width: 280px; height: 280px; }
             
-            .skill-card {
-                grid-column: 1 !important;
-                min-height: auto !important;
-            }
-
-            .contact-links {
-                flex-direction: row;
-                align-items: center;
-                justify-content: center;
-                gap: 15px;
-            }
-
-            .contact-links a {
-                width: 140px;
-            }
-
-            .experience-header {
+            .skills-grid { grid-template-columns: 1fr; }
+            .skill-card { grid-column: span 1 !important; }
+            
+            /* Responsive 3D Slider layout fix */
+            .projects-3d-track {
+                height: auto;
+                display: flex;
                 flex-direction: column;
-                align-items: flex-start;
+                gap: 25px;
             }
-
-            .experience-period {
-                margin-top: 10px;
+            .project-card {
+                position: relative;
+                width: 100%;
+                height: auto;
+                transform: none !important;
+                opacity: 1 !important;
+                z-index: 1 !important;
             }
-
-            .project-gallery {
-                height: 180px;
-            }
-
-            /* Mobile adjustments for contact section */
-            #contact {
-                min-height: 50vh;
-                padding-top: 40px;
-                padding-bottom: 60px;
-            }
+            .slider-arrow { display: none; }
         }
 
-        @media (max-width: 600px) {
-            .nav-container {
-                padding: 0 20px;
-            }
-
-            .nav-links {
-                gap: 15px;
-                font-size: 0.9rem;
-            }
-
-            .hero-content h2 {
-                font-size: 2rem;
-            }
-
-            .hero-content h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero-content .title {
-                font-size: 1.1rem;
-            }
-
-            .photo-circle {
-                width: 220px;
-                height: 220px;
-            }
-
-            .photo-circle::before {
-                width: 240px;
-                height: 240px;
-            }
-
-            section {
-                padding: 30px 20px 50px;
-            }
-
-            .btn {
-                padding: 12px 25px;
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: 30px;
-            }
-
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-links a {
-                width: 200px;
-                padding: 14px 10px;
-            }
-
-            .project-gallery {
-                height: 150px;
-            }
-
-            .experience-title {
-                font-size: 1.5rem;
-            }
-
-            .experience-company {
-                font-size: 1.2rem;
-            }
-
-            .about-content {
-                padding: 30px;
-            }
-
-            /* Mobile adjustments for contact section */
-            #contact {
-                min-height: 60vh;
-                padding-top: 30px;
-                padding-bottom: 50px;
-            }
-
-            .contact-content p {
-                font-size: 1rem;
-                margin-bottom: 30px;
-            }
-            
-            .skill-card {
-                padding: 20px;
-            }
-            
-            .skill-card h3 {
-                font-size: 1.2rem;
-                margin-bottom: 15px;
-            }
-            
-            .skill-card li {
-                font-size: 0.9rem;
-                padding: 6px 0;
-            }
-        }
-
-        /* Smooth Scroll - UPDATED: Increased offset */
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 100px;
@@ -1175,11 +1131,8 @@
     </style>
 </head>
 <body>
-    <!-- Progress Bar -->
     <div class="progress-bar"></div>
-
-    <!-- Back to Top Button -->
-    <a href="#home" class="back-to-top">↑</a>
+    <a href="#home" class="back-to-top" aria-label="Back to top">↑</a>
 
     <!-- Navigation -->
     <nav>
@@ -1200,7 +1153,7 @@
     <section id="home" class="hero">
         <div class="hero-photo">
             <div class="photo-circle">
-                <img src="Photograph.JPG" alt="Chamod Ranidu">
+                <img src="Photograph.JPG" alt="Chamod Ranidu - Mechatronics & Automation Engineer">
             </div>
         </div>
         <div class="hero-content">
@@ -1211,8 +1164,8 @@
                 <a href="#projects" class="btn btn-primary">View Projects</a>
                 <a href="#contact" class="btn btn-secondary">Contact Me</a>
             </div>
-            <!-- tech stack add -->
             <div class="tech-stack">
+                <span>3D CAD Design & Mechanical Drawings</span>
                 <span>Embedded Systems</span>
                 <span>Circuit Simulation</span>
                 <span>3D & 2D Designing</span>
@@ -1223,345 +1176,419 @@
         </div>
     </section>
 
+    <div class="cursor-glow" id="cursorGlow"></div>
+
     <!-- About Section -->
     <section id="about">
         <h2 class="section-title">About <span>Me</span></h2>
         <div class="about-content">
             <p>
-                Iʼm a passionate individual in Engineering, driven by innovation and problem-solving. I have fulfilled all academic requirements
-                and am presently awaiting the official conferment of my degree , B.Sc.(Hons) in Science and Technology (Specialized in Mechatronics)
-                at Uva Wellassa University. Iʼm eager to strengthen my technical expertise, adapt to emerging technologies, and apply creative
-                solutions to real-world engineering challenges, with a strong interest in R&D and contributing to organizational growth.
+                I am a passionate Engineer, driven by innovation, problem solving, and continuous learning. 
+                With a B.Sc. (Hons.) in Science and Technology (Specialized in Mechatronics) from Uva Wellassa University of Sri Lanka (GPA: 3.47, Second Class Upper Division), 
+                I bring strong technical expertise in designing, and optimizing electronics, automation systems, and custom machine solutions. I am highly motivated by engineering roles that involve designing and improving 
+                manufacturing facilities and processes while ensuring built-in quality and operational safety.
             </p>
             <p>
-                My work spans across microcontroller programming, PCB design, power electronics, and wireless communication systems. 
-                I'm constantly exploring new technologies and pushing the boundaries of what's possible in electronics engineering.
+                Whether developing mechanical systems and CAD designs, designing custom PCB layouts, programming microcontrollers, or integrating PLC-based industrial
+                automation, I am committed to applying creative and practical engineering solutions to real-world challenges. With a strong focus on 
+                mechanical design, product development, prototyping, and system integration, I aim to contribute to technological advancement and deliver reliable, 
+                manufacturable solutions that support organizational growth.
             </p>
         </div>
     </section>
 
     <!-- Professional Experience Section -->
-    <section id="experience" style="background: rgba(255, 255, 255, 0.02);">
+    <section id="experience">
         <h2 class="section-title">Professional <span>Experience</span></h2>
-        <div class="experience-card">
-            <div class="experience-header">
-                <div>
-                    <h3 class="experience-title">Trainee Electronics Engineer</h3>
-                    <h4 class="experience-company">CodeGen International (Pvt) Ltd, Vega Innovations (Power Electronics Department)</h4>
+        <div class="experience-container">
+            <!-- Latest Role -->
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Associate Automation & Electronics Engineer</h3>
+                        <h4 class="experience-company">Idea8 (pvt) Ltd</h4>
+                    </div>
+                    <span class="experience-period">March 2026 – Present</span>
                 </div>
-                <span class="experience-period">Jul 2025 – Dec 2025</span>
+                <div class="experience-description">
+                    Worked on client-oriented projects involving the development of electronic, automation, and mechatronic solutions from concept design to manufacturing-ready machine implementation.
+                    <ul>
+                        <li>R&D activities, prototyping, system integration, testing, validation, troubleshooting, and optimization of machine performance.</li>
+                        <li>Collaborated with clients to understand technical requirements and deliver solutions aligned with project objectives while maintaining quality standards.</li>
+                        <li>Managed project tasks, contributed to product improvement initiatives, and prepared technical documentation to support successful project execution.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="experience-description">
-                Gained hands-on experience in Power Electronics, Embedded Systems, Circuit Simulation, including working
-                with STM32, and TI C2000 micro-controllers, LTspice analysis, PWM/ ADC configurations, and understanding
-                flyback converters, gate drivers, and control loops. Worked on multidisciplinary projects involving:
-                <ul>
-                    <li>MCUs and Communication protocols (CAN, RS-485).</li>
-                    <li>PCB designing and 3D model design with thermal simulation.</li>
-                    <li>Simulation tools with power electronics systems.</li>
-                    <li>Focus on fly-back converters with troubleshooting and testing using laboratory instruments such as
-                        Oscilloscopes, Function generators, and Power analyzer.</li>
-                </ul>
+
+            <!-- Previous Role -->
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Trainee Electronics Engineer</h3>
+                        <h4 class="experience-company">CodeGen International (Pvt) Ltd, Vega Innovations (Power Electronics Department)</h4>
+                    </div>
+                    <span class="experience-period">Jul 2025 – Dec 2025</span>
+                </div>
+                <div class="experience-description">
+                    Gained hands-on experience in Power Electronics, Embedded Systems, Circuit Simulation, including working
+                    with STM32, and TI C2000 micro-controllers, LTspice analysis, PWM/ ADC configurations, and understanding
+                    flyback converters, gate drivers, and control loops. Worked on multidisciplinary projects involving:
+                    <ul>
+                        <li>MCUs and Communication protocols (CAN, RS-485).</li>
+                        <li>PCB designing and 3D model design with thermal simulation.</li>
+                        <li>Simulation tools with power electronics systems.</li>
+                        <li>Focus on fly-back converters with troubleshooting and testing using laboratory instruments such as Oscilloscopes, Function generators, and Power analyzers.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section with Galleries -->
+    <!-- 3D 3-Card Projects Carousel -->
     <section id="projects">
         <h2 class="section-title">Research & <span>Projects</span></h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>✧ Soil Sampling Attachment for Autonomous Robot </h3>
-                <!-- Project Gallery -->
-                <div class="project-gallery">
-                    <div class="gallery-container" data-gallery="gallery1">
-                        <div class="gallery-slide">
-                            <img src="SET.png" alt="Setup">
-                        </div>
-                        <div class="gallery-slide">
-                            <img src="CON.png" alt="sampling container">
-                        </div>
-                        <div class="gallery-slide">
-                            <img src="SAM.png" alt="drill system">
-                        </div>
-                    </div>
-                    <button class="gallery-nav gallery-prev" data-gallery="gallery1">‹</button>
-                    <button class="gallery-nav gallery-next" data-gallery="gallery1">›</button>
-                    <div class="gallery-controls">
-                        <span class="gallery-dot active" data-gallery="gallery1" data-slide="0"></span>
-                        <span class="gallery-dot" data-gallery="gallery1" data-slide="1"></span>
-                        <span class="gallery-dot" data-gallery="gallery1" data-slide="2"></span>
-                    </div>
-                </div>
-                <p>
-                    Designed and developed an autonomous soil sampling system capable of performing efficient and reliable
-                    sampling with minimal human intervention while maintaining sample integrity and operational safety.
-                    Integrated an ATmega2560 micro-controller using C++ based embedded programming, stepper motors, servo
-                    motors, gear motors, and linear screw actuators to achieve precise motion control. Designed the mechanical
-                    structure using SolidWorks and fabricated components through CNC machining, laser cutting, and 3D printing.
-                    Developed, tested, and debugged embedded firmware and circuit schematics using Arduino IDE and EasyEDA to
-                    ensure system reliability. The project contributes to advancements in autonomous robotic systems for
-                    agricultural and environmental monitoring.                
-                </p>
-                <div class="tech-tags">
-                    <span class="tech-tag">CAD/CAM Design</span>
-                    <span class="tech-tag">Embedded C/C++</span>
-                    <span class="tech-tag">Arduino (ATmega2560)</span>
-                    <span class="tech-tag">PCB Schematic Design</span>
-                </div>
-            </div>
+        
+        <div class="projects-3d-slider">
+            <button class="slider-arrow prev-arrow" aria-label="Previous Project">‹</button>
+            <button class="slider-arrow next-arrow" aria-label="Next Project">›</button>
 
-            <div class="project-card">
-                <h3>✧ Omini-Wheel Robot (Multi directional movement)</h3>
-                <!-- Project Gallery -->
-                <div class="project-gallery">
-                    <div class="gallery-container" data-gallery="gallery2">
-                        <div class="gallery-slide">
-                            <img src="2.3.png" alt="ADD1">
-                        </div>
-                        <div class="gallery-slide">
-                            <img src="2.1.png" alt="ADD2">
-                        </div>
-                        <div class="gallery-slide">
-                            <img src="2.jpg" alt="ADD3p">
-                        </div>
-                    </div>
-                    <button class="gallery-nav gallery-prev" data-gallery="gallery2">‹</button>
-                    <button class="gallery-nav gallery-next" data-gallery="gallery2">›</button>
-                    <div class="gallery-controls">
-                        <span class="gallery-dot active" data-gallery="gallery2" data-slide="0"></span>
-                        <span class="gallery-dot" data-gallery="gallery2" data-slide="1"></span>
-                        <span class="gallery-dot" data-gallery="gallery2" data-slide="2"></span>
-                    </div>
-                </div>
-                <p>
-                    Developed a robot using an Omni wheel system, Arduino UNO, Gyroscope, and Bluetooth, enabling precise
-                    movement at any angle through coordinated wheel speed and direction control.
-
-                </p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Arduino Uno(ATmega328P)</span>
-                    <span class="tech-tag">Motor Control</span>
-                    <span class="tech-tag">Embedded C/C++</span>
-                    <span class="tech-tag">Bluetooth Communication</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3>✧ Smart Liquid Measuring Machine</h3>
-                <!-- Project Gallery -->
-                <div class="project-gallery">
-                    <div class="gallery-container" data-gallery="gallery3">
-                        <div class="gallery-slide">
-                            <img src="img1.jpg" >
-                        </div>
-                        <div class="gallery-slide">
-                            <img src="img2.jpg" >
-                        </div>
-                        <div class="gallery-slide">
-                            <img src="img3.jpg" >
-                        </div>
-                    </div>
-                    <button class="gallery-nav gallery-prev" data-gallery="gallery3">‹</button>
-                    <button class="gallery-nav gallery-next" data-gallery="gallery3">›</button>
-                    <div class="gallery-controls">
-                        <span class="gallery-dot active" data-gallery="gallery3" data-slide="0"></span>
-                        <span class="gallery-dot" data-gallery="gallery3" data-slide="1"></span>
-                        <span class="gallery-dot" data-gallery="gallery3" data-slide="2"></span>
-                    </div>
-                </div>
-                <p>
-                    Developed an automated liquid filling system using Arduino UNO, solenoid valve, flow sensor, and I2C to
-                    accurately dispense preset volumes, reducing labor and minimizing liquid wastage
-                </p>
-                <div class="tech-tags">
-                    <span class="tech-tag">I2C</span>
-                    <span class="tech-tag">Sensors & actuators</span>
-
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3>✧ PLC Sorted Project</h3>
-                <!-- Project Gallery -->
-                <div class="project-gallery">
-                    <div class="gallery-container" data-gallery="gallery4">
-                        <div class="gallery-slide">
-                            <img src="image01.JPG" >
-                        </div>
-                        <div class="gallery-slide">
-                            <img src="image02.JPG" >
-                        </div>
-                        <div class="gallery-slide">
-                            <img src="image03.JPG">
-                        </div>
-                    </div>
-                    <button class="gallery-nav gallery-prev" data-gallery="gallery4">‹</button>
-                    <button class="gallery-nav gallery-next" data-gallery="gallery4">›</button>
-                    <div class="gallery-controls">
-                        <span class="gallery-dot active" data-gallery="gallery4" data-slide="0"></span>
-                        <span class="gallery-dot" data-gallery="gallery4" data-slide="1"></span>
-                        <span class="gallery-dot" data-gallery="gallery4" data-slide="2"></span>
-                    </div>
-                </div>
-                <p>
-                    By using PLC (Xinje), a system has been created that can be sorted by height.
-                </p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Ladder Logic Design</span>
-                    <span class="tech-tag">Sensor & Actuator Integration</span>
-                    <span class="tech-tag">Pneumatics</span>
-                    
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3>✧ Flyback Converter Custom PCB Design</h3>
-                <!-- Project Gallery -->
-                <div class="project-gallery">
-                    <div class="gallery-container" data-gallery="gallery5">
-                        <div class="gallery-slide">
-                            <img src="5.4.png" alt=" Circuit">
-                        </div>
-                        <div class="gallery-slide">
-                            <img src="5.5.jpg" alt="PCB Design">
-                        </div>
-                        <div class="gallery-slide">
-                            <img src="5.2.png" alt="Final L2 Product">
-                        </div>
-                        <div class="gallery-slide">
-                            <img src="5.3.png" alt="PCB  L Design">
-                        </div>
-
-                    </div>
-                    <button class="gallery-nav gallery-prev" data-gallery="gallery5">‹</button>
-                    <button class="gallery-nav gallery-next" data-gallery="gallery5">›</button>
-                    <div class="gallery-controls">
-                        <span class="gallery-dot active" data-gallery="gallery5" data-slide="0"></span>
-                        <span class="gallery-dot" data-gallery="gallery5" data-slide="1"></span>
-                        <span class="gallery-dot" data-gallery="gallery5" data-slide="2"></span>
-                        <span class="gallery-dot" data-gallery="gallery5" data-slide="3"></span>
-                    </div>
-                </div>
-                <p>
-                    Designed and developed an isolated Flyback DC–DC converter using the UC3842 current-mode PWM controller, 
-                    focusing on efficient power conversion, stable regulation, and compact PCB layout. The design emphasizes 
-                    practical SMPC hardware implementation, current-mode control, opto-isolated feedback, and protection circuitry with a 
-                    compact SMPS-optimized PCB layout.
-                    
-                </p>
-                <div class="tech-tags">
-                    <span class="tech-tag">EAGLE Designer</span>
-                    <span class="tech-tag">Thermal Management</span>
-                    <span class="tech-tag">Power Electronics</span>
-                 
-                </div>
-            </div>
-
-            <!--
-            <div class="project-card">
-                <h3>✧ </h3>
+            <div class="projects-3d-track">
                 
-                <div class="project-gallery">
-                    <div class="gallery-container" data-gallery="gallery6">
-                        <div class="gallery-slide">
-                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="RFID Reader">
+                <!-- Card 1 -->
+                <div class="project-card">
+                    <div>
+                        <h3>✧ Soil Sampling Attachment for Autonomous Robot</h3>
+                        <div class="project-gallery">
+                            <div class="gallery-container">
+                                <div class="gallery-slide"><img src="SET.png" alt="Setup preview"></div>
+                                <div class="gallery-slide"><img src="CON.png" alt="Container layout"></div>
+                                <div class="gallery-slide"><img src="SAM.png" alt="Sampling mechanism"></div>
+                            </div>
+                            <button class="gallery-nav gallery-prev" aria-label="Previous image">‹</button>
+                            <button class="gallery-nav gallery-next" aria-label="Next image">›</button>
+                            <div class="gallery-controls">
+                                <span class="gallery-dot active"></span>
+                                <span class="gallery-dot"></span>
+                                <span class="gallery-dot"></span>
+                            </div>
                         </div>
-                        <div class="gallery-slide">
-                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Control Panel">
-                        </div>
-                        <div class="gallery-slide">
-                            <img src="https://images.unsplash.com/photo-1563291074-2bf8677ac0e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Database Interface">
+                        <div class="project-description-container">
+                            <p class="truncated">
+                                Designed and developed an autonomous soil sampling system capable of performing efficient and reliable sampling with minimal human intervention while maintaining sample integrity and operational safety...
+                            </p>
+                            <button class="see-more-btn" onclick="openModal(event, 'Soil Sampling Attachment for Autonomous Robot', 'Designed and developed an autonomous soil sampling system capable of performing efficient and reliable sampling with minimal human intervention while maintaining sample integrity and operational safety. Integrated an ATmega2560 micro-controller using C++ based embedded programming, stepper motors, servo motors, gear motors, and linear screw actuators to achieve precise motion control. Designed the mechanical structure using SolidWorks and fabricated components through CNC machining, laser cutting, and 3D printing. Developed, tested, and debugged embedded firmware and circuit schematics using Arduino IDE and EasyEDA to ensure system reliability.')">See More...</button>
                         </div>
                     </div>
-                    <button class="gallery-nav gallery-prev" data-gallery="gallery6">‹</button>
-                    <button class="gallery-nav gallery-next" data-gallery="gallery6">›</button>
-                    <div class="gallery-controls">
-                        <span class="gallery-dot active" data-gallery="gallery6" data-slide="0"></span>
-                        <span class="gallery-dot" data-gallery="gallery6" data-slide="1"></span>
-                        <span class="gallery-dot" data-gallery="gallery6" data-slide="2"></span>
-                    </div> 
+                    <div class="tech-tags">
+                        <span class="tech-tag">SolidWorks</span>
+                        <span class="tech-tag">Embedded C++</span>
+                        <span class="tech-tag">ATmega2560</span>
+                        <span class="tech-tag">CNC / 3D Printing</span>
+                    </div>
                 </div>
-         
-                <p>
- 
-                </p>
-                <div class="tech-tags">
-                    <span class="tech-tag">RFID</span>
-                    <span class="tech-tag">Raspberry Pi</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Database</span>
+
+                <!-- Card 2 -->
+                <div class="project-card">
+                    <div>
+                        <h3>✧ Omni-Wheel Robot (Multi directional movement)</h3>
+                        <div class="project-gallery">
+                            <div class="gallery-container">
+                                <div class="gallery-slide"><img src="2.3.png" alt="Omni Robot View 1"></div>
+                                <div class="gallery-slide"><img src="2.1.png" alt="Omni Robot View 2"></div>
+                                <div class="gallery-slide"><img src="2.jpg" alt="Omni Robot View 3"></div>
+                            </div>
+                            <button class="gallery-nav gallery-prev" aria-label="Previous image">‹</button>
+                            <button class="gallery-nav gallery-next" aria-label="Next image">›</button>
+                            <div class="gallery-controls">
+                                <span class="gallery-dot active"></span>
+                                <span class="gallery-dot"></span>
+                                <span class="gallery-dot"></span>
+                            </div>
+                        </div>
+                        <div class="project-description-container">
+                            <p>
+                                Developed a robot using an Omni wheel system, Arduino UNO, Gyroscope, and Bluetooth, enabling precise movement at any angle through coordinated wheel speed and direction control.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Arduino Uno</span>
+                        <span class="tech-tag">Motor Control</span>
+                        <span class="tech-tag">Bluetooth</span>
+                    </div>
                 </div>
-            
+
+                <!-- Card 3 -->
+                <div class="project-card">
+                    <div>
+                        <h3>✧ Smart Liquid Measuring Machine</h3>
+                        <div class="project-gallery">
+                            <div class="gallery-container">
+                                <div class="gallery-slide"><img src="img1.jpg" alt="Liquid Dispenser Front View"></div>
+                                <div class="gallery-slide"><img src="img2.jpg" alt="Liquid Dispenser Side View"></div>
+                                <div class="gallery-slide"><img src="img3.jpg" alt="Liquid Dispenser Circuit"></div>
+                            </div>
+                            <button class="gallery-nav gallery-prev" aria-label="Previous image">‹</button>
+                            <button class="gallery-nav gallery-next" aria-label="Next image">›</button>
+                            <div class="gallery-controls">
+                                <span class="gallery-dot active"></span>
+                                <span class="gallery-dot"></span>
+                                <span class="gallery-dot"></span>
+                            </div>
+                        </div>
+                        <div class="project-description-container">
+                            <p>
+                                Developed an automated liquid filling system using Arduino UNO, solenoid valve, flow sensor, and I2C to accurately dispense preset volumes, reducing labor and liquid wastage.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">I2C</span>
+                        <span class="tech-tag">Sensors & Actuators</span>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="project-card">
+                    <div>
+                        <h3>✧ PLC Sorted Project</h3>
+                        <div class="project-gallery">
+                            <div class="gallery-container">
+                                <div class="gallery-slide"><img src="image01.JPG" alt="PLC Sorting Bench"></div>
+                                <div class="gallery-slide"><img src="image02.JPG" alt="PLC Control Panel"></div>
+                                <div class="gallery-slide"><img src="image03.JPG" alt="PLC Pneumatic Components"></div>
+                            </div>
+                            <button class="gallery-nav gallery-prev" aria-label="Previous image">‹</button>
+                            <button class="gallery-nav gallery-next" aria-label="Next image">›</button>
+                            <div class="gallery-controls">
+                                <span class="gallery-dot active"></span>
+                                <span class="gallery-dot"></span>
+                                <span class="gallery-dot"></span>
+                            </div>
+                        </div>
+                        <div class="project-description-container">
+                            <p>
+                                Created an automated sorting line utilizing a Xinje PLC system capable of sorting industrial components based on precise height parameter measurements.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Xinje PLC</span>
+                        <span class="tech-tag">Ladder Logic</span>
+                        <span class="tech-tag">Pneumatics</span>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="project-card">
+                    <div>
+                        <h3>✧ Flyback Converter Custom PCB Design</h3>
+                        <div class="project-gallery">
+                            <div class="gallery-container">
+                                <div class="gallery-slide"><img src="5.1.Png" alt="PCB Schematic Layout"></div>
+                                <div class="gallery-slide"><img src="5.4.png" alt="PCB 3D View"></div>
+                                <div class="gallery-slide"><img src="5.2.png" alt="PCB Fabricated Board"></div>
+                            </div>
+                            <button class="gallery-nav gallery-prev" aria-label="Previous image">‹</button>
+                            <button class="gallery-nav gallery-next" aria-label="Next image">›</button>
+                            <div class="gallery-controls">
+                                <span class="gallery-dot active"></span>
+                                <span class="gallery-dot"></span>
+                                <span class="gallery-dot"></span>
+                            </div>
+                        </div>
+                        <div class="project-description-container">
+                            <p>
+                                Designed and developed an isolated Flyback DC–DC converter using UC3842 controller, focusing on efficient power conversion, regulation, and compact PCB layout.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">PCB Design</span>
+                        <span class="tech-tag">Power Electronics</span>
+                    </div>
+                </div>
+
             </div>
-                               ADD HERE TEXT 
-        -->
+        </div>
+
+        <!-- NEW SUBSECTION: Interactive Showcase & Documentation -->
+        <div style="margin-top: 60px;">
+            <h2 class="section-title">Interactive Showcase & <span>Documentation</span></h2>
+            
+            <div class="showcase-grid">
+                
+                <!-- Showcase Card 1: 3D CAD Model with PDF and Image -->
+                <div class="showcase-card">
+                    <div>
+                        <div class="showcase-header">
+                            <div class="showcase-icon">⚙️</div>
+                            <h3>3D CAD Design & Mechanical Drawings</h3>
+                        </div>
+                        <p>Comprehensive 3D CAD models, mechanical assemblies, engineering drawings, and high-quality renders developed for product design, prototyping, and mechanical system evaluation.</p>
+                    </div>
+                    <div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">SolidWorks</span>
+                            <span class="tech-tag">3D CAD</span>
+                        </div>
+                        <div class="showcase-links">
+                            <a href="#" target="_blank" class="resource-btn btn-cad">📁 CAD Model</a>
+                            <a href="#" target="_blank" class="resource-btn btn-doc">📄 Drawing</a>
+                            <a href="#" target="_blank" class="resource-btn btn-video">🖼️ Images</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Showcase Card 2: PCB Design -->
+                <div class="showcase-card">
+                    <div>
+                        <div class="showcase-header">
+                            <div class="showcase-icon">⚡</div>
+                            <h3>Custom PCB Layout & Schematics</h3>
+                        </div>
+                        <p>Custom PCB designs, circuit development, component integration, and prototype electronics developed for embedded systems, control applications, and product development.</p>
+                    </div>
+                    <div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">EasyEDA</span>
+                            <span class="tech-tag">LTspice</span>
+                        </div>
+                        <div class="showcase-links">
+                            <a href="#" target="_blank" class="resource-btn btn-cad">⚡ Gerber & Schematics, Layout</a>
+                            <a href="#" target="_blank" class="resource-btn btn-video">▶ Resources</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Showcase Card 3: Thermal Simulation -->
+                <div class="showcase-card">
+                    <div>
+                        <div class="showcase-header">
+                            <div class="showcase-icon">🔥</div>
+                            <h3>Thermal Simulation Analysis</h3>
+                        </div>
+                        <p>Thermal simulation studies exploring structural behavior, temperature distribution, heat dissipation, and design optimization for engineering applications.</p>
+                    </div>
+                    <div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">ANSYS</span>
+                            <span class="tech-tag">Thermal Analysis</span>
+                        </div>
+                        <div class="showcase-links">
+                            <a href="#" target="_blank" class="resource-btn btn-doc">🖼️ Resources</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Showcase Card 4: Animation Machine -->
+                <div class="showcase-card">
+                    <div>
+                        <div class="showcase-header">
+                            <div class="showcase-icon">🎬</div>
+                            <h3>Machine Motion & Kinematic Animation</h3>
+                        </div>
+                        <p>3D assembly animations, motion studies, and kinematic simulations demonstrating mechanical movement, component interactions, and machine operating sequences.</p>
+                    </div>
+                    <div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">SolidWorks Motion</span>
+                            <span class="tech-tag">3D Animation</span>
+                        </div>
+                        <div class="showcase-links">
+                            <a href="#" target="_blank" class="resource-btn btn-video">▶ Motion Animation</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Showcase Card 5: Firmware Files -->
+                <div class="showcase-card">
+                    <div>
+                        <div class="showcase-header">
+                            <div class="showcase-icon">💻</div>
+                            <h3>Embedded Firmware & Driver Source Code</h3>
+                        </div>
+                        <p>Microcontroller based control systems, actuator interfaces, sensor integration, and embedded programming developed for automation, robotics, and electromechanical applications.</p>
+                    </div>
+                    <div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Embedded C++</span>
+                            <span class="tech-tag">STM32 / C2000 / AVR</span>
+                        </div>
+                        <div class="showcase-links">
+                            <a href="#" target="_blank" class="resource-btn btn-cad">💻 Source Code</a>
+                            <a href="#" target="_blank" class="resource-btn btn-doc">📄 Firmware Docs</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
+    <!-- Modal for Project Details -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h3 class="modal-title" id="modalTitle">Project Details</h3>
+            <div class="modal-body" id="modalBody">Description goes here...</div>
+        </div>
+    </div>
+
     <!-- Skills Section -->
-    <section id="skills" style="background: rgba(255, 255, 255, 0.02);">
+    <section id="skills">
         <h2 class="section-title">Skills & <span>Expertise</span></h2>
         <div class="skills-grid">
             <div class="skill-card">
-                <h3>Circuit Design</h3>
+                <h3>Circuit & PCB Design</h3>
                 <ul>
                     <li>Analog & Digital Circuit Design</li>
-                    <li>PCB Design & Layout (KiCad, Eagle)</li>
-                    <li>Power Electronics</li>
-                    <li>Signal Processing</li>
-                    <li>Thermal & Efficiency Considerations</li>
+                    <li>PCB Design & Layout</li>
+                    <li>Power Electronics & Flyback Converters</li>
+                    <li>LTspice, PSIM, MATLAB Simulation</li>
                 </ul>
             </div>
-
             <div class="skill-card">
                 <h3>Embedded Systems</h3>
                 <ul>
-                    <li>ARM Cortex-M (STM32), ESP32</li>
-                    <li>Arduino </li>
-                    <li>SPC5 (Beginner-level)</li>
-                    <li>Embedded C / C++ </li>
-                    <li>Peripheral Configuration (ADC, PWM, Timers, GPIO) </li>
+                    <li>STM32, TI C2000, ATmega2560</li>
+                    <li>Arduino, ESP32</li>
+                    <li>Embedded C / C++</li>
+                    <li>PWM, ADC, Gate Drivers, Timers</li>
                 </ul>
             </div>
-
             <div class="skill-card">
-                <h3>Tools & Software</h3>
+                <h3>CAD & Modeling Tools</h3>
                 <ul>
-                    <li>SolidWork, Solid Edge, AutoCAD</li>
-                    <li>LTspice, PSIM, MATLAB</li>
-                    <li>Oscilloscope, Function generator, and Power analyzers</li>
-                    <li>Soldering & Assembly</li>
+                    <li>SolidWorks, Solid Edge, AutoCAD</li>
+                    <li>3D Model Design & Thermal Simulation</li>
+                    <li>CNC Machining & 3D Printing Prototyping</li>
+                    <li>Continuous skill acquisition in ANSYS and MATLAB</li>
                 </ul>
             </div>
-
             <div class="skill-card">
                 <h3>Communication Protocols</h3>
                 <ul>
                     <li>I²C, SPI, UART</li>
                     <li>CAN, RS-485</li>
                     <li>Bluetooth, WiFi</li>
-                    <li>Sensor & Actuator Interfacing</li>
                 </ul>
             </div>
             <div class="skill-card">
-                <h3>Automation & Control Systems</h3>
+                <h3>Automation & Control</h3>
                 <ul>
-                    <li>PLC | Ladder Logic</li>
-                    <li>Pneumatic & Electro-Pneumatic Systems</li>
+                    <li>Xinje PLC | Ladder Logic</li>
                     <li>Industrial Sensors & Actuators</li>
-                    
+                    <li>Pneumatic Systems</li>
                 </ul>
             </div>
             <div class="skill-card">
-                <h3>Professional & Engineering Competencies</h3>
+                <h3>Engineering Competencies</h3>
                 <ul>
+                    <li>Manufacturing Facility & Process Optimization</li>
                     <li>Technical Documentation & Reporting</li>
-                    <li>Problem Solving & Analytical Thinking</li>
-                    <li>Rapid Learning & Adaptability</li>
-                    <li>Team Collaboration & Communication</li>
-                    <li>Safety & Standards Awareness</li>
-                    
+                    <li>Critical Thinking & Problem Solving</li>
+                    <li>Proactive, Adaptable & Fast Learner</li>
                 </ul>
             </div>
         </div>
@@ -1574,21 +1601,30 @@
             <p>Interested in collaborating or have a project in mind? I'd love to hear from you!</p>
             <p>Feel free to reach out for collaborations, projects, inquiries, or ideas. I’d be happy to hear from you.</p>
             <div class="contact-links">
-                <a href="mailto:chamodranidu3008@gmail.com">✉︎ Email Me</a>
-                <a href="https://www.linkedin.com/in/chamod-ranidu" target="_blank">🔗LinkedIn</a>
-                <a href="https://github.com/chamodranidu" target="_blank">⌘ GitHub</a>
-                <a href="Chamod-Ranidu-Resume.pdf" download="Chamod-Ranidu-Resume.pdf">📄 Resume ↓ </a>
+                <a href="mailto:chamodranidu3008@gmail.com" title="Email Me">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/chamod-ranidu" target="_blank" rel="noopener" title="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg>
+                </a>
+                <a href="https://github.com/chamodranidu" target="_blank" rel="noopener" title="GitHub">
+                    <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+                </a>
+                <a href="Chamod-Ranidu-Resume.pdf" download="Chamod-Ranidu-Resume.pdf" title="Download Resume">
+                    <svg viewBox="0 0 24 24"><path d="M6 2c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6H6zm7 7V3.5L18.5 9H13zM8 12h8v2H8v-2zm0 4h8v2H8v-2zm0-8h3v2H8V8z"/></svg>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Chamod Ranidu. Constantly learning, experimenting, and improving.</p>
+        <p>&copy; 2026 Chamod Ranidu. Constantly learning, updating, experimenting, and improving.</p>
     </footer>
 
+    <!-- JavaScript Logic -->
     <script>
-        // Scroll progress bar
+        // Scroll Progress & Navbar background
         const progressBar = document.querySelector('.progress-bar');
         const backToTop = document.querySelector('.back-to-top');
 
@@ -1597,14 +1633,12 @@
             const scrolled = (window.scrollY / windowHeight) * 100;
             progressBar.style.width = scrolled + '%';
 
-            // Show/hide back to top button
             if (window.scrollY > 500) {
                 backToTop.classList.add('show');
             } else {
                 backToTop.classList.remove('show');
             }
 
-            // Navbar background on scroll
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
                 nav.classList.add('scrolled');
@@ -1613,160 +1647,136 @@
             }
         });
 
-        // Smooth scroll for navigation links with better offset
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Calculate offset based on section
-                    let offset = 90;
-                    if (targetId === '#contact') {
-                        offset = 100; // Slightly more offset for contact section
-                    }
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - offset,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+        // Modal Functionality with event propagation handling
+        function openModal(e, title, text) {
+            if (e && e.stopPropagation) e.stopPropagation();
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerText = text;
+            document.getElementById('projectModal').style.display = 'flex';
+        }
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+        }
+
+        // Close Modal when clicking outside the content block
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
+        // 3D 3-Card Carousel Logic
+        (function init3DCarousel() {
+            const cards = Array.from(document.querySelectorAll('.projects-3d-track .project-card'));
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                cards.forEach((card, i) => {
+                    card.className = 'project-card'; // Reset classes
+
+                    if (i === currentIndex) {
+                        card.classList.add('active');
+                    } else if (i === (currentIndex - 1 + cards.length) % cards.length) {
+                        card.classList.add('prev');
+                    } else if (i === (currentIndex + 1) % cards.length) {
+                        card.classList.add('next');
+                    } else if (i < currentIndex) {
+                        card.classList.add('hidden-left');
+                    } else {
+                        card.classList.add('hidden-right');
+                    }
+                });
+            }
+
+            // Click card to move to main mid view
+            cards.forEach((card, index) => {
+                card.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('gallery-nav') || 
+                        e.target.classList.contains('gallery-dot') || 
+                        e.target.classList.contains('see-more-btn')) return;
+                    
+                    if (index !== currentIndex) {
+                        currentIndex = index;
+                        updateCarousel();
+                    }
+                });
             });
-        }, observerOptions);
 
-        // Observe all sections and cards
-        document.querySelectorAll('section, .project-card, .skill-card, .experience-card').forEach(el => {
-            observer.observe(el);
-        });
+            if (prevArrow) {
+                prevArrow.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                    updateCarousel();
+                });
+            }
 
-        // Add hover effect to project cards
+            if (nextArrow) {
+                nextArrow.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % cards.length;
+                    updateCarousel();
+                });
+            }
+
+            updateCarousel();
+        })();
+
+        // Image Gallery inside Cards Logic
         document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.zIndex = '10';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.zIndex = '1';
-            });
-        });
-
-        // Project Gallery Functionality
-        document.querySelectorAll('.project-card').forEach(card => {
-            const galleryContainer = card.querySelector('.gallery-container');
+            const container = card.querySelector('.gallery-container');
+            const slides = card.querySelectorAll('.gallery-slide');
             const dots = card.querySelectorAll('.gallery-dot');
             const prevBtn = card.querySelector('.gallery-prev');
             const nextBtn = card.querySelector('.gallery-next');
-            const galleryId = galleryContainer?.dataset.gallery;
-            
-            if (!galleryContainer) return;
-            
             let currentSlide = 0;
-            const totalSlides = galleryContainer.children.length;
-            
+
+            if (!container || slides.length === 0) return;
+
             function updateGallery() {
-                galleryContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-                
-                // Update dots
+                container.style.transform = `translateX(-${currentSlide * 100}%)`;
                 dots.forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentSlide);
                 });
             }
-            
+
             if (prevBtn) {
-                prevBtn.addEventListener('click', () => {
-                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                prevBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
                     updateGallery();
                 });
             }
-            
+
             if (nextBtn) {
-                nextBtn.addEventListener('click', () => {
-                    currentSlide = (currentSlide + 1) % totalSlides;
+                nextBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    currentSlide = (currentSlide + 1) % slides.length;
                     updateGallery();
                 });
             }
-            
-            // Dot navigation
+
             dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
+                dot.addEventListener('click', (e) => {
+                    e.stopPropagation();
                     currentSlide = index;
                     updateGallery();
                 });
             });
-            
-            // Auto slide (optional)
-            let slideInterval;
-            
-            card.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                clearInterval(slideInterval);
-            });
         });
 
-        // Skill cards animation on hover
-        document.querySelectorAll('.skill-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                const items = card.querySelectorAll('li');
-                items.forEach((item, index) => {
-                    item.style.transitionDelay = `${index * 0.05}s`;
-                });
-            });
-            
-            // Add z-index management for hover
-            card.addEventListener('mouseenter', () => {
-                document.querySelectorAll('.skill-card').forEach(otherCard => {
-                    otherCard.style.zIndex = '1';
-                });
-                card.style.zIndex = '100';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.zIndex = '1';
-            });
-        });
+        // Optimized Cursor Glow Effect
+        (function () {
+            const glow = document.getElementById('cursorGlow');
+            if (!glow) return;
 
-        // Adjust scroll position on page load if there's a hash in URL
-        window.addEventListener('load', () => {
-            if (window.location.hash) {
-                const targetElement = document.querySelector(window.location.hash);
-                if (targetElement) {
-                    setTimeout(() => {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }, 100);
-                }
-            }
-        });
+            document.addEventListener('mousemove', (e) => {
+                glow.style.left = `${e.clientX}px`;
+                glow.style.top = `${e.clientY}px`;
+                glow.classList.add('active');
+            });
+        })();
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
